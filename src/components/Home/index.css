@@ -1,0 +1,26 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* background-image: linear-gradient(skyblue, seagreen, #272727); */
+  background-color: #f6f6f6;
+}
+
+.home-heading {
+  font-family: 'Roboto';
+  font-size: 32px;
+  /* color: #fff; */
+  color: #82c341;
+}
+
+.redirection-link {
+  color: #13add5;
+  text-decoration: none;
+}
+
+.redirection {
+  font-family: 'Roboto';
+  font-size: 24px;
+}

@@ -1,6 +1,5 @@
 [[redirects]]
   from = "/*"
-  to = "https://ytidserver.onrender.com"
+  to = "https://ytidexpressserver.onrender.com"
   status = 200
   force = true
-  headers = {X-From = "Netlify"}

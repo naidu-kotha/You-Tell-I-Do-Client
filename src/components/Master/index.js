@@ -58,19 +58,25 @@ class Master extends Component {
     // console.log(array)
 
     return (
-      <>
+      <div className="display-answers-container">
         {array.map(each => (
-          <div className="answers-container">
-            <h1>{each[0]}</h1>
+          <ul className="answers-container">
+            <li className="answered-by">{each[0]}</li>
             {each[1].map(a => (
-              <>
-                <p>{a.question}</p>
-                <p>{a.givenAnswer}</p>
-              </>
+              <div className="answer-list-container" key={a.id}>
+                <li className="answer-list-item">
+                  <b>{a.question}</b>
+                </li>
+                <li className="answer-list-item">Answer = {a.answer}</li>
+                <li className="answer-list-item">
+                  Given Answer = {a.givenAnswer}
+                </li>
+                <br />
+              </div>
             ))}
-          </div>
+          </ul>
         ))}
-      </>
+      </div>
     )
   }
 
@@ -142,6 +148,11 @@ class Master extends Component {
     localStorage.removeItem('questionsList')
   }
 
+  clearAnswersArray = () => {
+    this.setState({answersArray: []})
+    localStorage.removeItem('answersList')
+  }
+
   render() {
     const {questionsArray, answersArray} = this.state
     const masterJwtToken = Cookies.get('master_jwt_token')
@@ -193,43 +204,57 @@ class Master extends Component {
               <button type="submit" className="create-button">
                 Create Question
               </button>
-              <button
-                type="button"
-                className="submit-question-button"
-                onClick={this.clearQuestionsArray}
-              >
-                Clear All Questions
-              </button>
+              <div>
+                <button
+                  type="button"
+                  className="submit-question-button"
+                  onClick={this.clearQuestionsArray}
+                >
+                  Clear All Questions
+                </button>
+                <button
+                  type="button"
+                  className="submit-question-button"
+                  onClick={this.clearAnswersArray}
+                >
+                  Clear Received Answers
+                </button>
+              </div>
             </div>
           </form>
-          <form className="question-form-container" onSubmit={this.createTest}>
-            <ol className="question-list">
-              {questionsArray.map(each => (
-                <li key={each.id} className="list">
-                  <div className="list-item">
-                    <h1 className="question">{each.question}</h1>
-                    <button
-                      type="button"
-                      onClick={this.onDelete}
-                      data-value={each.id}
-                      className="remove-btn"
-                    >
-                      <img
-                        src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
-                        alt="delete"
-                        className="delete-icon"
-                      />
-                    </button>
-                  </div>
-                </li>
-              ))}
-              {questionsArray.length > 0 && (
-                <button type="submit" className="submit-question-button">
-                  Submit Questions
-                </button>
-              )}
-            </ol>
-          </form>
+          {questionsArray.length > 0 && (
+            <form
+              className="question-form-container"
+              onSubmit={this.createTest}
+            >
+              <ol className="question-list">
+                {questionsArray.map(each => (
+                  <li key={each.id} className="list">
+                    <div className="list-item">
+                      <h1 className="question">{each.question}</h1>
+                      <button
+                        type="button"
+                        onClick={this.onDelete}
+                        data-value={each.id}
+                        className="remove-btn"
+                      >
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+                          alt="delete"
+                          className="delete-icon"
+                        />
+                      </button>
+                    </div>
+                  </li>
+                ))}
+                {questionsArray.length > 0 && (
+                  <button type="submit" className="submit-question-button">
+                    Submit Questions
+                  </button>
+                )}
+              </ol>
+            </form>
+          )}
         </div>
         {answersArray && this.displayAnswers()}
       </div>

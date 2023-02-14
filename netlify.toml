@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/*"
+  from = "/https://monumental-sunburst-e0995c.netlify.app/"
   to = "https://ytidexpressserver.onrender.com"
   status = 200
   force = true

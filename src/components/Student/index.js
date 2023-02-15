@@ -13,6 +13,7 @@ class Student extends Component {
     questionsArray: [],
     answersArray: [],
     username: '',
+    answersSubmitted: false,
   }
 
   componentDidMount() {
@@ -61,6 +62,7 @@ class Student extends Component {
         //   console.log(a)
         localStorage.setItem('answersList', JSON.stringify(a))
       }
+      this.setState({answersSubmitted: true})
     }
   }
 
@@ -102,7 +104,7 @@ class Student extends Component {
   }
 
   render() {
-    const {activityLogClicked} = this.state
+    const {activityLogClicked, answersSubmitted} = this.state
     const studentJwtToken = Cookies.get('student_jwt_token')
     if (studentJwtToken === undefined) {
       return <Redirect to="/login" />
@@ -136,7 +138,16 @@ class Student extends Component {
                 onChange={this.onChangeUsername}
               />
             </div>
-            <p className="test-details">Check Activity Log to begin test</p>
+            {answersSubmitted ? (
+              <>
+                <p className="test-details">**** Answers Submitted ****</p>
+                <p className="test-details">
+                  You can resubmit your answers by changing your response.
+                </p>
+              </>
+            ) : (
+              <p className="test-details">Check Activity Log to begin test</p>
+            )}
           </div>
           {activityLogClicked && this.activityLog()}
         </div>

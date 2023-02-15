@@ -63,18 +63,20 @@ class Master extends Component {
         {array.map(each => (
           <ul className="answers-container">
             <li className="answered-by">{each[0]}</li>
-            {each[1].map(a => (
-              <div className="answer-list-container" key={a.id}>
-                <li className="answer-list-item">
-                  <b>{a.question}</b>
-                </li>
-                <li className="answer-list-item">Answer = {a.answer}</li>
-                <li className="answer-list-item">
-                  Given Answer = {a.givenAnswer}
-                </li>
-                <br />
-              </div>
-            ))}
+            <div className="answer-container-style">
+              {each[1].map(a => (
+                <div key={a.id}>
+                  <li className="answer-list-item">
+                    <b>{a.question}</b>
+                  </li>
+                  <li className="answer-list-item">Answer = {a.answer}</li>
+                  <li className="answer-list-item">
+                    Given Answer = {a.givenAnswer}
+                  </li>
+                  <br />
+                </div>
+              ))}
+            </div>
           </ul>
         ))}
       </div>

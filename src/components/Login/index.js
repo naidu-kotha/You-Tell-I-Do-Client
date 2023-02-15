@@ -60,7 +60,11 @@ class Login extends Component {
         }
       } catch (e) {
         console.log(e)
-        alert(e.response.data)
+        if (e.response.status === 404) {
+          alert(e.message, e.name)
+        } else {
+          alert(e.response.data)
+        }
       }
     }
   }

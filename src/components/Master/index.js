@@ -32,6 +32,7 @@ class Master extends Component {
     secondNum: numberWords[0].word,
     questionsArray: [],
     answersArray: [],
+    questionsSubmitted: false,
   }
 
   componentDidMount() {
@@ -153,8 +154,12 @@ class Master extends Component {
     localStorage.removeItem('answersList')
   }
 
+  displayTestCreatedMsg = () => {
+    this.setState({questionsSubmitted: true})
+  }
+
   render() {
-    const {questionsArray, answersArray} = this.state
+    const {questionsArray, answersArray, questionsSubmitted} = this.state
     const masterJwtToken = Cookies.get('master_jwt_token')
     if (masterJwtToken === undefined) {
       return <Redirect to="/login" />
@@ -221,6 +226,7 @@ class Master extends Component {
                 </button>
               </div>
             </div>
+            {questionsSubmitted && <p className="test">Test Created.</p>}
           </form>
           {questionsArray.length > 0 && (
             <form
@@ -248,7 +254,11 @@ class Master extends Component {
                   </li>
                 ))}
                 {questionsArray.length > 0 && (
-                  <button type="submit" className="submit-question-button">
+                  <button
+                    type="submit"
+                    className="submit-test-button"
+                    onClick={this.displayTestCreatedMsg}
+                  >
                     Submit Questions
                   </button>
                 )}

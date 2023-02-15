@@ -142,7 +142,8 @@ class Student extends Component {
               <>
                 <p className="test-details">**** Answers Submitted ****</p>
                 <p className="test-details">
-                  You can resubmit your answers by changing your response.
+                  You can resubmit your answers by changing your response and
+                  clicking Submit Answers button.
                 </p>
               </>
             ) : (

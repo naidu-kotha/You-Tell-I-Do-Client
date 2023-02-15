@@ -2,6 +2,7 @@
   "name": "youTellIDo",
   "private": true,
   "version": "1.0.0",
+  "proxy": "https://ytidexpressserver.onrender.com",
   "engines": {
     "node": "^10.13 || 12 || 14 || 15",
     "npm": ">=6"

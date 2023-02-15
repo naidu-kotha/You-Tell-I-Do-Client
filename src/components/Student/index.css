@@ -5,6 +5,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  padding: 20px 40px;
 }
 
 .student-heading {
@@ -101,6 +102,8 @@
   font-family: 'Roboto';
   font-weight: 600;
   font-size: 18px;
+  text-align: center;
+  color: #13add5;
 }
 
 @media screen and (max-width: 767px) {

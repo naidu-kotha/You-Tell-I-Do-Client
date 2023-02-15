@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/https://monumental-sunburst-e0995c.netlify.app/api"
+  from = "/https://monumental-sunburst-e0995c.netlify.app/api/*"
   to = "https://ytidexpressserver.onrender.com/api"
   status = 200
   force = true

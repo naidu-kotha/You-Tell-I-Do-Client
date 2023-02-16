@@ -74,7 +74,7 @@ class SignUp extends Component {
       <div className="login-bg">
         <form className="login-form" onSubmit={this.onSubmitForm}>
           <img
-            src="https://media.licdn.com/dms/image/C510BAQFEpFHWZMVDRA/company-logo_200_200/0/1519893946434?e=2147483647&v=beta&t=nlkQL8i_V1Ke4BdGUjDndBsRSmzTmPCZ0-N7VKfH6lE"
+            src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1676527078/Free_Sample_By_Wix_gvsse2.png"
             alt="website logo"
             className="login-logo"
           />
